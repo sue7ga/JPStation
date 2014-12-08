@@ -21,7 +21,8 @@ post '/station/line' => "Line#poststation";
 
 #area
 get '/area' => "Line#area";
-post 'line/area' => "Line#postarea";
+
+post '/line/area' => "Line#postarea";
 
 #pref
 get '/pref' => "Line#pref";

@@ -3,22 +3,34 @@
 : override content -> {
 
 
-<form role="form" method="post" action="/line/pref">
+<form role="form" method="post" action="/line/area">
 
 <select name="area_name">
 <option value="" selected>地域
 <option value="北海道">北海道
-<option value="青森県">青森県
-<option value="岩手県">岩手県
-<option value="宮城県">宮城県
-<option value="秋田県">秋田県
-<option value="山形県">山形県
-<option value="福島県">福島県
-<option value="沖縄県">沖縄県
+<option value="東北">東北
+<option value="近畿">近畿
+<option value="関東">関東
+<option value="中部">中部
+<option value="中国">中国
+<option value="四国">四国
+<option value="九州">九州
 </select> 
 
 <button type="submit" class="btn btn-default">Submit</button>
 </form>
+
+
+<table class="table table-hover">
+<!-- On cells (`td` or `th`) -->
+:for $lines -> $line{
+<tr>
+  <td class="info"><: $line :></td>
+</tr>
+:}
+</table>
+
+
 
 
 

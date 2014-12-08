@@ -5,7 +5,10 @@ my $express = new WebService::Heartrails::Express();
 
 sub area{
  my($class,$c) = @_;
- return $c->render('area.tx');
+ my $param = $c->req->parameters;
+ my $area_name = $c->session->get('param');
+ my $lines = $express->line({area => Encode::encode_utf8($area_name)});
+ return $c->render('area.tx',{lines => $lines});
 }
 
 sub postarea{
@@ -18,9 +21,7 @@ sub postarea{
 sub pref{
  my($class,$c) = @_;
  my $pref_name = $c->session->get('param');
- print Dumper $pref_name;
  my $lines = $express->line({prefecture => Encode::encode_utf8($pref_name)});
- print Dumper $lines;
  return $c->render('pref.tx',{lines => $lines});
 }
 
