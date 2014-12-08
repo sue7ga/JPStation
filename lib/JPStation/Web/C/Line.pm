@@ -8,6 +8,13 @@ sub area{
  return $c->render('area.tx');
 }
 
+sub postarea{
+ my($class,$c) = @_;
+ my $param = $c->req->parameters;
+ $c->session->set('param' => $param->{area_name});
+ return $c->redirect('/area');
+}
+
 sub pref{
  my($class,$c) = @_;
  my $pref_name = $c->session->get('param');
