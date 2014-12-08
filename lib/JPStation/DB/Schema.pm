@@ -8,9 +8,9 @@ use Teng::Schema::Declare;
 base_row_class 'JPStation::DB::Row';
 
 table {
-    name 'member';
+    name 'stations';
     pk 'id';
-    columns qw(id name);
+    columns qw(id line stations);
 };
 
 1;
