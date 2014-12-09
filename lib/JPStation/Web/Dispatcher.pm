@@ -9,14 +9,7 @@ use Module::Find;
 useall 'JPStation::Web::C';
 base 'JPStation::Web::C';
 
-get '/' => "Root#home";
-
-#home
-post '/station/home' => "Root#postline";
-
-#station
 get '/station' => "Line#station";
-
 post '/station/line' => "Line#poststation";
 
 #area
@@ -28,6 +21,12 @@ post '/line/area' => "Line#postarea";
 get '/pref' => "Line#pref";
 
 post '/line/pref' => "Line#postpref";
+
+#linesearch
+
+get '/line' => "Line#search";
+
+post '/post/line' => "Line#postsearch";
 
 
 1;

@@ -31,6 +31,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li><a href="/line">路線名検索</a></li>
                     <li><a href="/station">駅名検索</a></li>
                     <li><a href="/area">エリア検索</a></li>
                     <li><a href="/pref">都道府県検索</a></li>

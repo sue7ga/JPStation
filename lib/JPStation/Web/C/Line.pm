@@ -35,7 +35,7 @@ sub postpref{
 sub station{
  my($class,$c) = @_;
  my $param = $c->session->get('station'); 
-my $stations = $express->station({name => $param->{name}});
+ my $stations = $express->station({name => $param->{name}});
  return $c->render('station.tx',{stations => $stations});
 }
  
@@ -46,5 +46,18 @@ sub poststation{
  return $c->redirect('/station');
 }
 
+sub search{
+ my($class,$c) = @_;
+ my $line_name = $c->session->get('param');
+ my $lines = $express->station({line => Encode::encode_utf8($line_name)});
+ return $c->redirect('line.tx',{lines => $lines});
+}
+
+sub postsearch{
+ my($class,$c) = @_;
+ my $param = $c->req->parameters;
+ $c->session->set('param' => $param->{line});
+ return $c->redirect('/line');
+}
 
 1;
